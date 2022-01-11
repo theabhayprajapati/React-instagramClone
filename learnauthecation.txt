@@ -1,0 +1,25 @@
+step 1: first we made and file called nextjsauth and copied the code from the nextjsauth.js.
+
+step 2: Then we made a project on firebase and got credentials from the firebase.console and made new file firebase.js and pasted the code.
+
+step 3: Now we need to add getApps and getApp as if the getApps don't have length one inistal app else show App.
+
+step 4: Then we need to add database and storage add getFirestore and getStorage().
+
+step 5: then export all the {app, db,  storage}.
+
+step 6: Get your authentication keys from the firebase.
+
+
+step 7: add pages section in the nextauth js and provide signinpage '/auth/signin
+
+step 8: now this page is your's and you can do what ever you can this should have for a signin Page
+
+
+step 9: after seting those steps up now your goal is to find the callback url from the signin button of the auth/signinpage page.
+
+step 10: after this now you are able to signin with google but yet you don't have and login state managenent how wll rediret you user's to the appliation of the
+
+step 11: after this rap you _app.js with sessionprovider and now you can change the stuff accorin  to login sesion.
+
+const {data: session} = useSession()

@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Feed from '../components/Feed'
+import Header from '../components/Header'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
   return (
-    <div className="font-mono text-3xl">
-      <div>
+    <div className="font-Roboto bg-gray-50 h-screen overflow-y-scroll scrollbar-hide ">
+      <div className="">
         <Head>
           <title>Instagram</title>
           <link
@@ -14,7 +16,10 @@ export default function Home() {
             type="image/x-icon"
           />
         </Head>
-        <div>this is instagram</div>
+        {/* //todo Header */}
+        <Header />
+        {/* todo Feed */}
+        <Feed /> {/* //todo Modal the banner that takes input */}
       </div>
     </div>
   )
