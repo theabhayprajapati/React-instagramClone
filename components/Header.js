@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import {
   SearchIcon,
-  PlusCirlcleIcon,
+  PlusCircleIcon,
   HeartIcon,
   PaperAirplaneIcon,
   HomeIcon,
@@ -10,8 +10,11 @@ import {
 } from '@heroicons/react/outline'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import { modalState } from '../atoms/modalAtom'
+import { useRecoilState } from 'recoil'
 function Header() {
   const router = useRouter()
+  const [open, setopen] = useRecoilState(modalState)
   const { data: session, loading } = useSession()
   console.log(session)
   return (
@@ -65,7 +68,11 @@ function Header() {
                   3
                 </div>
               </div>
-
+              <PlusCircleIcon
+                className="headericons"
+                onClick={() => setopen(true)}
+              />
+              {console.log(open)}
               <HeartIcon className="headericons" />
               <UserGroupIcon className="headericons" />
               <img

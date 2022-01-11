@@ -1,10 +1,14 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useRecoilValue } from 'recoil'
+import { modalState } from '../atoms/modalAtom'
 import Feed from '../components/Feed'
 import Header from '../components/Header'
+import Modal from '../components/Modal'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  // const [open] = useRecoilValue(modalState)
   return (
     <div className="font-Roboto bg-gray-50 h-screen overflow-y-scroll scrollbar-hide ">
       <div className="">
@@ -16,10 +20,9 @@ export default function Home() {
             type="image/x-icon"
           />
         </Head>
-        {/* //todo Header */}
         <Header />
-        {/* todo Feed */}
-        <Feed /> {/* //todo Modal the banner that takes input */}
+        <Feed />
+        <Modal />
       </div>
     </div>
   )
