@@ -1,7 +1,13 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { CameraIcon } from '@heroicons/react/outline'
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
-import { ref, getDownloadURL, uploadString, updateDoc } from 'firebase/storage'
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  updateDoc,
+} from '@firebase/firestore'
+import { ref, getDownloadURL, uploadString } from '@firebase/storage'
 import { useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
 import { Fragment } from 'react/cjs/react.development'
@@ -44,7 +50,7 @@ function Modal() {
         })
       },
     )
-    setopen(false)
+    setopen(false)  
     setloading(false)
     setSelectedFile(null)
   }

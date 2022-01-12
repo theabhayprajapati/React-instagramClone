@@ -39,7 +39,11 @@ function Header() {
 
           {/*  */}
 
-          <Image src={'https://links.papareact.com/jjm'} layout="fill" />
+          <Image
+            src={'https://links.papareact.com/jjm'}
+            layout="fill"
+            objectFit="contain"
+          />
         </div>
         {/* Middle screen */}
         {/* Sarch icons */}

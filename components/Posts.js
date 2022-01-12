@@ -1,49 +1,31 @@
+import { collection, onSnapshot, orderBy, query } from 'firebase/firestore'
+import { useEffect, useState } from 'react'
+import { db } from './firebase'
 import Post from './Post'
 
 function Posts() {
-  const posts = [
-    {
-      id: '123',
-      username: 'abhayprjapar',
-      img: 'https://links.papareact.com/3ke',
-      userimg: 'https://links.papareact.com/3ke',
-      caption:
-        'Sunt ipsum officia laboris in reprehenderit consequat magna commodo amet.',
-    },
-    {
-      id: '34',
-      username: 'abhayprjapar',
-      img: 'https://links.papareact.com/3ke',
-      userimg: 'https://links.papareact.com/3ke',
-      caption:
-        'Sunt ipsum officia laboris in reprehenderit consequat magna commodo amet.',
-    },
-    {
-      id: '98',
-      username: 'abhayprjapar',
-      img: 'https://links.papareact.com/3ke',
-      userimg: 'https://links.papareact.com/3ke',
-      caption:
-        'Sunt ipsum officia laboris in reprehenderit consequat magna commodo amet.',
-    },
-    {
-      id: '567',
-      username: 'abhayprjapar',
-      img: 'https://links.papareact.com/3ke',
-      userimg: 'https://links.papareact.com/3ke',
-      caption:
-        'Sunt ipsum officia laboris in reprehenderit consequat magna commodo amet.',
-    },
-  ]
+  const [posts, setposts] = useState([])
+  useEffect(
+    () =>
+      onSnapshot(
+        query(collection(db, 'posts'), orderBy('timestamp', 'desc')),
+        (snapshot) => {
+          setposts(snapshot.docs)
+        },
+      ),
+    [db],
+  )
+        
   return (
     <div>
       {posts.map((psto) => (
         <Post
           key={psto.id}
-          username={psto.username}
-          img={psto.img}    
-          userimg={psto.img}
-          caption={psto.caption}
+          id={psto.id}
+          username={psto.data().username}
+          img={psto.data().image}
+          userimg={psto.data().profileimage}
+          caption={psto.data().caption}
         />
       ))}
     </div>
