@@ -7,6 +7,12 @@ function Posts() {
   const [posts, setposts] = useState([])
   useEffect(
     () =>
+
+    // ?  actually we want this in the sorted timestamp: so we are using from firestore orderBY is making the order 
+    // ! query for for aranging in the line.
+    // ! orderBy is for :
+            // ? 1st: timestamp
+            // ? 2nd: in 'desc' descending manner
       onSnapshot(
         query(collection(db, 'posts'), orderBy('timestamp', 'desc')),
         (snapshot) => {
@@ -15,7 +21,7 @@ function Posts() {
       ),
     [db],
   )
-        
+
   return (
     <div>
       {posts.map((psto) => (

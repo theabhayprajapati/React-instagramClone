@@ -13,7 +13,6 @@ export default NextAuth({
   pages: {
     signIn: '/auth/signin',
   },
-
   //  todo: upgrading the user sesion and respnse this thing will add the extra information to the response gettig from the google.com
   //  ? exrta username which we don't have before and nore we are having
   callbacks: {
@@ -27,3 +26,4 @@ export default NextAuth({
     },
   },
 })
+

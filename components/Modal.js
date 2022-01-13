@@ -34,6 +34,7 @@ function Modal() {
       profileimage: session.user.image,
       timestamp: serverTimestamp(),
     })
+    
     console.log('new post addef  with id ', docRef.id)
 
     // * uploading the image to the firestore
